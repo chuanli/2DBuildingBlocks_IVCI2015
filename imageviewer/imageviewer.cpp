@@ -1740,6 +1740,7 @@ ImageViewer::ImageViewer(){
 
 	// initialize data
 	synmode = 1; // default synthesis method is one. two and three are for label and label+interlabel. However, these two methods do not work well due to the labels are used in a local way -- pairwise smoothness cost of ADJACENT PIXELS
+
 	IniImg(); // Initialize images
 	IniRep(); // Initialize repetitive BB
 	IniCooCBB();
@@ -1751,9 +1752,6 @@ ImageViewer::ImageViewer(){
 		//computeConsMtHungarian(); // compute constellation distance matrix
 		computeConsMDS();
 	}
-
-
-
 
 	// need to creat a QGraphicsView and a QGraphcisScene
 	scene = new QGraphicsScene();

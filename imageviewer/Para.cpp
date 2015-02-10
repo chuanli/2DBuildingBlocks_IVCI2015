@@ -1,9 +1,14 @@
 #include "Para.h"
 
-QString directoryname = "C:/Chuan/data/DemoIVCI2015/2DSynthesis";
-QString filename_imgInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1).jpg";
-QString filename_repInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1)Detection.txt";
-QString filename_coocInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1)BBOccurrenceDetection.txt";
+//QString directoryname = "C:/Chuan/data/DemoIVCI2015/2DSynthesis";
+//QString filename_imgInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1).jpg";
+//QString filename_repInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1)Detection.txt";
+//QString filename_coocInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1)BBOccurrenceDetection.txt";
+
+QString directoryname = "";
+QString filename_imgInput = "fac(46).jpg";
+QString filename_repInput = "fac(46)Detection.txt";
+QString filename_coocInput = "fac(46)BBOccurrenceDetection.txt";
 
 //QString filename_imgInput = "C:/Chuan/Dropbox/Project/2DBuildingBlock/SiggraphAsia/Code/ImageSyn/imageviewer/data/fac(20).jpg";
 //QString filename_repInput = "C:/Chuan/Dropbox/Project/2DBuildingBlock/SiggraphAsia/Code/ImageSyn/imageviewer/data/fac(20)GT.txt";
