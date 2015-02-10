@@ -67,6 +67,7 @@ extern bool flag_syn;
 extern bool flag_scribble;
 extern bool flag_interactive;
 extern bool flag_MS;
+extern bool flag_scribblemap;
 
 extern bool flag_constellation;
 

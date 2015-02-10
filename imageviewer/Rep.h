@@ -227,8 +227,6 @@ public:
 
 	// a constellation distance matrix for pairwise pixels
 	
-
-
 };
 
 #endif

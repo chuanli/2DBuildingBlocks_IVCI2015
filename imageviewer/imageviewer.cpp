@@ -1430,8 +1430,15 @@ void ImageViewer::IniCooCBB(){
 
 	int gen_X = 0;
 	int gen_Y = 0;
-	rep->expansion_bbstatisticsX = rep->list_bbstatisticsX[gen_X];
-	rep->expansion_bbstatisticsY = rep->list_bbstatisticsY[gen_Y];
+	if (rep->list_bbstatisticsX.size() > 0)
+	{
+		rep->expansion_bbstatisticsX = rep->list_bbstatisticsX[gen_X];
+	}
+	if (rep->list_bbstatisticsY.size() > 0)
+	{
+		rep->expansion_bbstatisticsY = rep->list_bbstatisticsY[gen_Y];
+	}
+	
 	rep->expansion_bbstatisticsX_scaled = round(rep->expansion_bbstatisticsX * scalerRes);
 	rep->expansion_bbstatisticsY_scaled = round(rep->expansion_bbstatisticsY * scalerRes);
 
@@ -1570,7 +1577,7 @@ void ImageViewer::createActions()
 	connect(renderRepLabelAct, SIGNAL(triggered()), this, SLOT(renderRepLabel()));
 
 	renderRepBBAct = new QAction(tr("&renderRepBB"), this);
-	renderRepBBAct->setShortcut(tr("g"));
+	renderRepBBAct->setShortcut(tr("Ctrl+B"));
 	connect(renderRepBBAct, SIGNAL(triggered()), this, SLOT(renderRepBB()));
 
 	scribbleAct = new QAction(tr("&scribble"), this);
@@ -3219,6 +3226,9 @@ void ImageViewer::renderRepLabel(){
 }
 
 void ImageViewer::renderRepBB(){
+	if (rep->num_shiftX == 1)
+		return;
+	
 	flag_syn = true;
 	estimationSW();
 	qDebug()<<"render repetitive BB in the synthesized image.";
@@ -5089,6 +5099,7 @@ void ImageViewer::showInput(){
 }
 
 void ImageViewer::scribble(){
+
 	qDebug()<<"to scribble";
 	flag_syn = false;
 	flag_scribble = true;
@@ -5129,10 +5140,13 @@ void ImageViewer::scribble(){
 
 	//and open a sideviewer for selecting bb type
 	showInput();
-
+	flag_scribblemap = true;
 }
 
 void ImageViewer::synScribble(){
+	if (!flag_scribblemap)
+		return;
+	flag_scribblemap = false;
 	qDebug()<<"guideStitch ... ";
 	synmode = 3;
 	flag_interactive = false;

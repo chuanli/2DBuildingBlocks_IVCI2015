@@ -6,7 +6,7 @@
 //QString filename_coocInput = "C:/Chuan/data/DemoIVCI2015/2DSynthesis/Chuan(1)BBOccurrenceDetection.txt";
 
 QString directoryname = "";
-QString filename_imgInput = "fac(46).jpg";
+QString filename_imgInput = "fac(46).png";
 QString filename_repInput = "fac(46)Detection.txt";
 QString filename_coocInput = "fac(46)BBOccurrenceDetection.txt";
 
@@ -86,6 +86,7 @@ int global_rowsInput_fullres = 0;
 int global_colsInput_fullres = 0;
 
 bool flag_syn = false;
+bool flag_scribblemap = false;
 double global_cover_in_thresh = 0.5;
 double global_cover_out_thresh = 0.1;
 int step_reconfig = 8;

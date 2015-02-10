@@ -76,7 +76,8 @@ void BBItem::updateItem(QGraphicsSceneMouseEvent *event){
 	qDebug()<<"after boundary check, newx "<<newx<<", w_fullres:"<<w_fullres<<", x_fullres: "<<x_fullres<<", x_shift_ori: "<<x_shift_ori/scalerRes;
 	qDebug()<<"after boundary check, newy "<<newy<<", h_fullres:"<<h_fullres<<", y_fullres: "<<y_fullres<<", y_shift_ori: "<<y_shift_ori/scalerRes;
 
-	this->setPos(newx, newy);
+	//this->setPos(newx, newy);
+	this->setPos(newx, this->y_start);
 	update();
 	QGraphicsPolygonItem::mouseReleaseEvent(event);
 	globalsender->sendsignal();	
@@ -271,11 +272,102 @@ void BBItem::updateItem(QGraphicsSceneMouseEvent *event){
 //	//this->setPos(newx, this->y_start);
 //	update();
 //	QGraphicsPolygonItem::mouseMoveEvent(event);
-//}
+//} 
 
 Rep::Rep(void)
 {
+	// Input image
+	qimgInput_fullres = NULL;
+	qimgInput_scaled = NULL;
+	qimgInputGray_fullres = NULL;
+	qimgInputGray_scaled = NULL;
+	qlabelInput_fullres = NULL;
+	qlabelInput_scaled = NULL;
+	qlabelInputGray_fullres = NULL;
+	qlabelInputGray_scaled = NULL;
 
+	// Input label
+	qimgInputlabel_fullres = NULL;
+	qimgInputlabel_scaled = NULL;
+
+	// Input internal label
+	qimgInputlabelinterX_fullres = NULL;
+	qimgInputlabelinterX_scaled = NULL;
+
+	qimgInputlabelinterY_fullres = NULL;
+	qimgInputlabelinterY_scaled = NULL;
+
+	// Synthesized image
+	qimgSyn_fullres = NULL;
+	qimgSyn_scaled = NULL;
+	qimgSynGray_fullres = NULL;
+	qimgSynGray_scaled = NULL;
+	qlabelSyn_fullres = NULL;
+	qlabelSyn_scaled = NULL;
+	qlabelSynGray_fullres = NULL;
+	qlabelSynGray_scaled = NULL;
+
+	qimgSynlabelColor_fullres = NULL;
+	qlabelSynlabelColor_fullres = NULL;
+
+
+	// user guidance
+	qimgUserGuide_fullres = NULL;
+	qimgUserGuide_scaled = NULL;
+	qimgUserGuideGray_fullres = NULL;
+	qimgUserGuideGray_scaled = NULL;
+	//data related to guidance map -- not sure what is this thing ... 
+
+	// dimension
+	rowsInput_scaled = 0;
+	colsInput_scaled = 0;
+	rowsSyn_scaled = 0;
+	colsSyn_scaled = 0;
+	rowsPaint_scaled = 0;
+	colsPaint_scaled = 0;
+	numPixelInput_scaled = 0;
+	numPixelSyn_scaled = 0;
+
+	rowsInput_fullres = 0;
+	colsInput_fullres = 0;
+	rowsSyn_fullres = 0;
+	colsSyn_fullres = 0;
+	rowsPaint_fullres = 0;
+	colsPaint_fullres = 0;
+	numPixelInput_fullres = 0;
+	numPixelSyn_fullres = 0;
+
+	// shifts
+	num_shiftX = 0;
+	dist_shiftX_scaled = 0;
+	dist_shiftX_fullres = 0;
+	num_shiftY = 0;
+	dist_shiftY_scaled = 0;
+	dist_shiftY_fullres = 0;
+	num_shiftXY = 0;
+
+	// shift for MSL
+	num_shiftMSL = 0;
+
+	// Repetitive Building Blocks data ... 
+	numRep = 0;
+	numBB = 0;
+
+	// co-occurrence statistics
+	numCooC = 0;
+
+	// co-occurrent statistics of BB
+	num_bbstatisticsX = 0;
+	num_bbstatisticsY = 0;
+	expansion_bbstatisticsX = 0;
+	expansion_bbstatisticsY = 0;
+	expansion_bbstatisticsX_scaled = 0;
+	expansion_bbstatisticsY_scaled = 0;
+
+	// votes
+	imgVote_scaled = NULL;
+
+	// a constellation distance matrix for pairwise pixels
 }
 
 Rep::~Rep(void)
